@@ -9,9 +9,9 @@ $ npm i @vijayrangan/opentelemetry-js
 The package exposes a single entry point for initialisation. The instace is a singleton and may be used
 globally to add custom instrumentations to your application.
 
-```ts
-import { Telemetry } from "@vijayrangan/opentelemetry-js";
+> 🚨 This package has not been published on npm yet.
 
+```ts
 // Configuration options documented below
 const config = {
   serviceName: "test",
