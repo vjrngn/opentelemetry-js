@@ -1,0 +1,105 @@
+{
+  "name": "@vijayrangan/opentelemetry-js",
+  "version": "0.0.0",
+  "description": "Library that \"automatically\" adds common-sense observability to your NodeJS REST & GraphQL APIs",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "main": "dist/cjs/main.js",
+  "module": "dist/esm/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/main.js",
+      "require": "./dist/cjs/main.js",
+      "types": "./dist/cjs/*.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:greenpass-venture/common-baseline.git"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "tsc -b tsconfig.build.cjs.json tsconfig.build.esm.json",
+    "format": "prettier .",
+    "lint": "eslint .",
+    "prepare": "husky install",
+    "test": "vitest --run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.7.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.40.0",
+    "@opentelemetry/exporter-metrics-otlp-grpc": "^0.45.1",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.45.1",
+    "@opentelemetry/instrumentation-amqplib": "^0.33.3",
+    "@opentelemetry/instrumentation-aws-sdk": "^0.36.2",
+    "@opentelemetry/instrumentation-dns": "^0.32.4",
+    "@opentelemetry/instrumentation-fastify": "^0.32.4",
+    "@opentelemetry/instrumentation-graphql": "^0.36.0",
+    "@opentelemetry/instrumentation-http": "^0.45.1",
+    "@opentelemetry/instrumentation-mongodb": "^0.37.2",
+    "@opentelemetry/instrumentation-mongoose": "^0.33.3",
+    "@opentelemetry/instrumentation-net": "^0.32.3",
+    "@opentelemetry/instrumentation-pg": "^0.37.0",
+    "@opentelemetry/sdk-node": "^0.45.1",
+    "lodash.isempty": "^4.4.0",
+    "pino": "^8.16.2",
+    "pino-opentelemetry-transport": "0.4.0"
+  },
+  "devDependencies": {
+    "@types/inversify": "^2.0.33",
+    "@types/jest": "^29.5.8",
+    "@types/lodash": "^4.14.201",
+    "@types/lodash.isempty": "^4.4.9",
+    "@types/node": "^20.9.1",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^8.18.1",
+    "@vitest/coverage-v8": "^0.34.6",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "ignorePatterns": [
+      "dist/"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "prettier"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "^_",
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "c8": {
+    "all": true,
+    "source-map": true,
+    "include": [
+      "src/**/*.ts"
+    ]
+  }
+}
