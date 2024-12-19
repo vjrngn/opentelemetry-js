@@ -1,15 +1,10 @@
 # Common Observability
 
-### Installation
-```sh
-$ npm i @vijayrangan/opentelemetry-js
-```
+> 🚨 This package has not been published on npm yet.
 
 ### Usage
 The package exposes a single entry point for initialisation. The instace is a singleton and may be used
 globally to add custom instrumentations to your application.
-
-> 🚨 This package has not been published on npm yet.
 
 ```ts
 // Configuration options documented below
